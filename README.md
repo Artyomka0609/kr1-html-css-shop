@@ -27,5 +27,5 @@
 Группа: ЭФБО-11-25
 
 # Текущий статус
-- Создана базовая структура проекта.
-- https://artyomka0609.github.io/kr1-html-css-shop/
+Создана базовая структура проекта.
+https://artyomka0609.github.io/kr1-html-css-shop/
