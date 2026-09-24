@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,7 +8,7 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header>
+<header>
   <div class="site-header">
     <a class="site-logo" href="index.html">ShopProject</a>
 
@@ -22,29 +21,21 @@
       </ul>
     </nav>
   </div>
-  </header>
+</header>
 
-  
-  <main>
-    <section class="hero">
-      <h1>Учебный интернет-магазин</h1>
-      <p>
-        Это стартовая страница учебного frontend-проекта.
-        В дальнейшем на её основе будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг.
-      </p>
-      <a class="button" href="#popular">Перейти к товарам</a>
-    </section>
+<main>
+  <!-- Основное содержимое страницы -->
+   <section class="hero">
+  <h1>Учебный интернет-магазин</h1>
+  <p>
+    Это стартовая страница учебного frontend-проекта.
+    В дальнейшем на её основе будет разработан многостраничный сайт
+    интернет-магазина или каталога услуг.
+  </p>
+  <a class="button" href="#popular">Перейти к товарам</a>
+</section>
 
-  </main>
-
-  <footer id="contacts">
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-  </footer>
-
-
-  <section class="section" id="advantages">
+<section class="section" id="advantages">
   <h2>Преимущества проекта</h2>
 
   <ul class="advantages-list">
@@ -55,41 +46,37 @@
   </ul>
 </section>
 
-
 <section class="section" id="popular">
   <h2>Популярные товары</h2>
+  
 
   <article class="product-card">
     <h3>Товар 1</h3>
     <p>Краткое описание учебного товара.</p>
     <p>Цена: 1000 руб.</p>
     <button class="button product-card__button" type="button" data-product="Товар 1">
-    Заказать
-    </button>
-
+  Заказать
+</button>
   </article>
 
   <article class="product-card">
     <h3>Товар 2</h3>
     <p>Краткое описание учебного товара.</p>
     <p>Цена: 1500 руб.</p>
-    <button class="button product-card__button" type="button" data-product="Товар 1">
-    Заказать
-    </button>
-
+    <button class="button product-card__button" type="button" data-product="Товар 2">
+  Заказать
+</button>
   </article>
 
   <article class="product-card">
     <h3>Товар 3</h3>
     <p>Краткое описание учебного товара.</p>
     <p>Цена: 2000 руб.</p>
-    <button class="button product-card__button" type="button" data-product="Товар 1">
-    Заказать
-    </button>
-
+    <button class="button product-card__button" type="button" data-product="Товар 3">
+  Заказать
+</button>
   </article>
 </section>
-
 
 <aside class="aside-info">
   <h2>Информация для студентов</h2>
@@ -99,6 +86,13 @@
     БЭМ-структура и адаптивная версия сайта.
   </p>
 </aside>
+
+</main>
+
+<footer id="contacts">
+  <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+  <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+</footer>
 
 <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
   <h2 id="order-dialog-title">Оформление заявки</h2>
@@ -196,7 +190,6 @@
 <p class="success-message" id="success-message" hidden>
   Форма успешно отправлена!
 </p>
-
 
 </body>
 </html>
