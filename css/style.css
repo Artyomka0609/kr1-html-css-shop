@@ -1,3 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header,
+main,
+footer {
+  padding: 20px;
+}
+
+header {
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #f2f2f2;
+}
+
+section {
+  margin-bottom: 24px;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
 /* 
   Универсальное правило для всех элементов.
   border-box делает расчёт размеров более понятным:
@@ -18,6 +46,8 @@ body {
   color: #222222;
   background-color: #ffffff;
 }
+
+
 
 /*
   Задаём внутренние отступы для основных областей страницы.
