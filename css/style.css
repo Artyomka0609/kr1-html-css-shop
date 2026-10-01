@@ -74,6 +74,10 @@ a:hover {
   text-decoration: underline;
 }
 
+a:focus {
+  outline: 1px dotted var(--color-primary); 
+}
+
 a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
@@ -109,7 +113,8 @@ a:active {
 }
 
 .button:active {
-  
+  transform: scale(0.98); 
+  background-color: #002d62; 
 }
 
 /* 4. Компоненты страницы */
