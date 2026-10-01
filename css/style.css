@@ -64,6 +64,11 @@ a {
   text-decoration: none;
 }
 
+/* Новое: состояние для посещённых ссылок */
+a:visited {
+  color: #551a8b; /* фиолетовый цвет для посещённых ссылок */
+}
+
 a:hover {
   color: var(--color-primary-dark);
   text-decoration: underline;
@@ -72,6 +77,10 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+a:active {
+  color: var(--color-danger); 
 }
 
 .button {
@@ -97,6 +106,10 @@ a:focus-visible {
 .button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.button:active {
+  
 }
 
 /* 4. Компоненты страницы */
