@@ -52,6 +52,18 @@ footer {
 
 header {
   background-color: var(--color-surface);
+  /* Закреплённая шапка: остаётся наверху при прокрутке */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Плавная прокрутка и отступ якорей, чтобы заголовки секций
+   не прятались под закреплённой шапкой */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 footer {
@@ -129,6 +141,11 @@ a:active {
 
 /* 4. Компоненты страницы */
 .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
   max-width: var(--container-width);
   margin: 0 auto;
 }
@@ -140,13 +157,12 @@ a:active {
 }
 
 .site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
   padding: 0;
-  margin: var(--space-md) 0 0;
+  margin: 0;
   list-style: none;
-}
-
-.site-nav__list li {
-  margin-bottom: var(--space-sm);
 }
 
 .hero {
@@ -166,7 +182,19 @@ a:active {
   margin-top: 0;
 }
 
+/* Карточки товаров выстроены в горизонтальный ряд */
+.product-list {
+  display: flex;
+  gap: var(--space-md);
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+}
+
 .product-card {
+  flex: 1 0 240px;
+  display: flex;
+  flex-direction: column;
   margin-bottom: var(--space-md);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
@@ -180,6 +208,34 @@ a:active {
 
 .product-card h3 {
   margin-top: 0;
+}
+
+/* Кнопка прокрутки наверх */
+.scroll-top-button {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+  z-index: 200;
+}
+
+.scroll-top-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.scroll-top-button.is-visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .aside-info {
