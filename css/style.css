@@ -66,7 +66,7 @@ a {
 
 /* Новое: состояние для посещённых ссылок */
 a:visited {
-  color: #551a8b; /* фиолетовый цвет для посещённых ссылок */
+  color: #551a8b; 
 }
 
 a:hover {
@@ -100,6 +100,10 @@ a:active {
 
 .button:hover {
   background-color: var(--color-primary-dark);
+}
+
+.button:visited {
+  color: white; 
 }
 
 .button:focus-visible {
