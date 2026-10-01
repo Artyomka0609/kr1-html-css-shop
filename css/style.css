@@ -162,9 +162,7 @@ a:focus-visible {
   background-color: var(--color-surface-aside);
 }
 
-/* ===============================
-   5. Форма и модальное окно
-   =============================== */
+/* 5. Форма и модальное окно */
 .order-dialog {
   width: min(100% - 32px, 560px);
   padding: var(--space-lg);
