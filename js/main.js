@@ -24,10 +24,13 @@ orderButtons.forEach((button) => {
   });
 });
 
+
+
 // Закрываем модальное окно по кнопке «Закрыть».
 closeDialogButton.addEventListener('click', () => {
   orderDialog.close();
 });
+
 
 // Получаем форму заявки.
 const orderForm = document.getElementById('order-form');
@@ -71,17 +74,4 @@ orderForm.addEventListener('submit', (event) => {
 
   // Закрываем модальное окно.
   orderDialog.close();
-});
-
-// --- Кнопка прокрутки наверх ---
-const scrollTopButton = document.getElementById('scroll-top-button');
-
-// Показываем кнопку после прокрутки вниз, прячем наверху страницы.
-window.addEventListener('scroll', () => {
-  scrollTopButton.classList.toggle('is-visible', window.scrollY > 200);
-});
-
-// По клику плавно прокручиваем страницу в самый верх.
-scrollTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
