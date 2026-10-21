@@ -10,28 +10,26 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://github.io">
 </head>
-<body>
-  <!-- Приведено к БЭМ-блоку site-header и site-nav синхронно с главной страницей -->
+<body class="page" id="top">
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-          <!-- Для каталога добавлен модификатор активной ссылки -->
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page__main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Каталог</span>
+      <span class="breadcrumbs__current" aria-current="page">Каталог</span>
     </nav>
 
     <section class="section">
@@ -42,27 +40,26 @@
       </p>
     </section>
 
-    <section class="catalog-layout">
+    <div class="catalog-layout">
       <aside class="catalog-filters">
         <h2 class="catalog-filters__title">Фильтры</h2>
 
         <form class="filters-form" action="#" method="get">
-          <!-- Добавлены БЭМ-классы для элементов формы фильтров -->
           <fieldset class="filters-form__fieldset">
             <legend class="filters-form__legend">Категория</legend>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="all">
+              <input class="filters-form__checkbox" type="checkbox" name="category" value="all">
               Все товары
             </label>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="popular">
+              <input class="filters-form__checkbox" type="checkbox" name="category" value="popular">
               Популярные
             </label>
 
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="new">
+              <input class="filters-form__checkbox" type="checkbox" name="category" value="new">
               Новинки
             </label>
           </fieldset>
@@ -71,13 +68,11 @@
             <legend class="filters-form__legend">Цена</legend>
 
             <label class="filters-form__label" for="price-from">От</label>
-            <input class="filters-form__input-number" id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
 
             <label class="filters-form__label" for="price-to">До</label>
-            <input class="filters-form__input-number" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
           </fieldset>
-
-          <!-- Добавлен класс модификатора для кнопки -->
           <button class="button button--primary" type="submit">Применить</button>
         </form>
       </aside>
@@ -86,36 +81,179 @@
         <h2 class="catalog-products__title">Список товаров</h2>
 
         <div class="products-grid">
-          <!-- Карточки товаров полностью приведены к БЭМ-структуре -->
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
+          <article class="product-card product-card--featured" aria-labelledby="headphones-title">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/headphones.svg"
+                alt="Синие полноразмерные наушники с мягкими амбушюрами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">Хит</span>
+            <p class="product-card__category">Аудио · AR-H1</p>
+            <h3 class="product-card__title" id="headphones-title">Наушники Aero H1</h3>
+            <p class="product-card__description">Беспроводные наушники для музыки, учёбы и видеозвонков. Мягкие амбушюры и регулируемое оголовье.</p>
+            <p class="product-card__availability" id="headphones-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Наушники Aero H1</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth 5.3</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Время работы</th>
+                    <td class="product-specs__cell">До 24 часов</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">180 г</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 1000 рублей">1 000 ₽</p>
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Наушники Aero H1" aria-describedby="headphones-availability">Заказать</button>
+            </div>
           </article>
 
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
+          <article class="product-card product-card--discount" aria-labelledby="mouse-title">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/mouse.svg"
+                alt="Светло-серая компьютерная мышь с колёсиком и боковыми кнопками" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">−300 ₽</span>
+            <p class="product-card__category">Периферия · PT-M2</p>
+            <h3 class="product-card__title" id="mouse-title">Мышь Point M2</h3>
+            <p class="product-card__description">Удобная мышь для повседневной работы. Настраиваемая чувствительность и дополнительные боковые кнопки.</p>
+            <p class="product-card__availability" id="mouse-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Мышь Point M2</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">USB</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Сенсор</th>
+                    <td class="product-specs__cell">До 3 200 dpi</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Кнопки</th>
+                    <td class="product-specs__cell">6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 1500 рублей">1 500 ₽</p>
+                <del class="product-card__old-price" aria-label="Прежняя цена: 1800 рублей">1 800 ₽</del>
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Мышь Point M2" aria-describedby="mouse-availability">Заказать</button>
+            </div>
           </article>
 
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
+          <article class="product-card product-card--unavailable" aria-labelledby="keyboard-title">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/keyboard.svg"
+                alt="Компактная клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">Скоро</span>
+            <p class="product-card__category">Периферия · TP-K3</p>
+            <h3 class="product-card__title" id="keyboard-title">Клавиатура Type K3</h3>
+            <p class="product-card__description">Компактная механическая клавиатура без цифрового блока. Съёмный кабель освобождает место на столе.</p>
+            <p class="product-card__availability product-card__availability--unavailable" id="keyboard-availability">Временно нет в наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Клавиатура Type K3</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Тип</th>
+                    <td class="product-specs__cell">Механическая</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Клавиши</th>
+                    <td class="product-specs__cell">87</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">USB-C</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 2000 рублей">2 000 ₽</p>
+              </div>
+              <button class="button button--disabled product-card__button" type="button"
+                data-product="Клавиатура Type K3" aria-describedby="keyboard-availability" disabled>Нет в наличии</button>
+            </div>
           </article>
         </div>
       </section>
-    </section>
+    </div>
   </main>
 
-  <!-- Подвал оформлен как БЭМ-блок site-footer -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+    <p class="order-dialog__description" id="order-product-name" hidden></p>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="product" type="hidden">
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input class="order-form__input" id="order-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail</label>
+        <input class="order-form__input" id="order-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="order-form__actions">
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+
+  <p class="success-message" id="success-message" role="status" hidden>
+    Заявка успешно проверена! Это учебная форма: данные на сервер не отправляются.
+  </p>
+  <a class="to-top" href="#top" aria-label="Вернуться к началу страницы">
+    <span class="to-top__icon" aria-hidden="true">↑</span>
+    Наверх
+  </a>
+
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    <div class="site-footer__inner">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
 </body>
 </html>
