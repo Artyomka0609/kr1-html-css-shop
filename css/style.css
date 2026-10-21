@@ -37,6 +37,7 @@
   --transition-fast: 180ms ease;
 
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--site-header-height, 89px) + var(--space-md));
 }
 
 /* ===============================
@@ -162,6 +163,10 @@ a:focus-visible {
    =============================== */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex-shrink: 0;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
 }

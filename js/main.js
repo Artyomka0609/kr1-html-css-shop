@@ -1,3 +1,17 @@
+// Учитываем высоту закреплённой шапки при переходе по якорным ссылкам.
+const siteHeader = document.querySelector('.site-header');
+
+if (siteHeader) {
+  const updateHeaderHeight = () => {
+    document.documentElement.style.setProperty(
+      '--site-header-height', `${siteHeader.getBoundingClientRect().height}px`
+    );
+  };
+
+  updateHeaderHeight();
+  new ResizeObserver(updateHeaderHeight).observe(siteHeader);
+}
+
 // Модальное окно и форма — отдельные БЭМ-блоки.
 // id используются для JavaScript, классы — для оформления.
 const orderDialog = document.getElementById('order-dialog');
