@@ -10,10 +10,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://github.io">
 </head>
-<body>
-  <!-- Шапка приведена к общему БЭМ-стандарту проекта -->
+<body class="page" id="top">
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -21,18 +19,17 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-          <!-- Добавлен модификатор активной ссылки для страницы контактов -->
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Хлебные крошки приведены к БЭМ-структуре CSS -->
+  <main class="page__main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Контакты</span>
+      <span class="breadcrumbs__current" aria-current="page">Контакты</span>
     </nav>
 
     <section class="section">
@@ -40,8 +37,6 @@
       <p class="section__description">
         Здесь размещается контактная информация учебного интернет-магазина.
       </p>
-
-      <!-- Добавлены семантичные БЭМ-классы для списка контактов -->
       <ul class="contacts-list">
         <li class="contacts-list__item">Телефон: +7 (900) 000-00-00</li>
         <li class="contacts-list__item">E-mail: info@example.com</li>
@@ -54,15 +49,14 @@
       <p class="section__description">
         Для отправки заявки используйте форму в модальном окне на главной странице.
       </p>
-      <!-- Добавлен класс модификатора кнопки -->
-      <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
+      <a class="button button--primary" href="index.html#order-dialog">Перейти к форме</a>
     </section>
   </main>
-
-  <!-- Подвал сайта оформлен как БЭМ-блок site-footer -->
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    <div class="site-footer__inner">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
 </body>
 </html>

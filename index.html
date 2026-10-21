@@ -3,50 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Учебный интернет-магазин с каталогом товаров и формой заявки.">
   <title>Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://github.com">
 </head>
 
-<body id="top">
+<body class="page" id="top">
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page__main">
     <section class="hero">
       <h1 class="hero__title">Учебный интернет-магазин</h1>
       <p class="hero__description">
-        Это стартовая страница учебного frontend-проекта.
-        В дальнейшем на её основе будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг.
+        Учебный многостраничный интернет-магазин.
+        Выберите товар на главной странице или в каталоге и заполните форму заявки.
       </p>
-      <!-- Добавлен класс модификатора кнопки -->
       <a class="button button--primary" href="#popular">Перейти к товарам</a>
     </section>
 
     <section class="section" id="advantages">
-      <!-- Добавлен БЭМ-класс для заголовка секции -->
       <h2 class="section__title">Преимущества проекта</h2>
-      <!-- Создан блок преимуществ по БЭМ -->
       <ul class="advantages-list">
         <li class="advantages-list__item">понятная HTML-структура;</li>
         <li class="advantages-list__item">семантические блоки страницы;</li>
         <li class="advantages-list__item">подключение внешнего CSS-файла;</li>
-        <li class="advantages-list__item">подготовка к разработке многостраничного сайта.</li>
+        <li class="advantages-list__item">единая навигация между страницами.</li>
       </ul>
     </section>
 
@@ -54,7 +51,7 @@
       <h2 class="section__title">Популярные товары</h2>
 
       <div class="products-grid">
-        <article class="product-card">
+        <article class="product-card product-card--featured">
           <h3 class="product-card__title">Товар 1</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 1000 руб.</p>
@@ -80,9 +77,8 @@
     <aside class="aside-info">
       <h2 class="aside-info__title">Информация для студентов</h2>
       <p class="aside-info__text">
-        На следующих практических занятиях этот проект будет расширяться:
-        появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
-        БЭМ-структура и адаптивная версия сайта.
+        В проекте используются HTML, CSS и JavaScript, Flexbox-навигация
+        и Grid-сетка товаров. Компоненты оформлены по методологии БЭМ.
       </p>
     </aside>
   </main>
@@ -90,13 +86,14 @@
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
     <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="product" type="hidden">
       <div class="order-form__field">
         <label class="order-form__label" for="order-name">Имя</label>
-        <input class="order-form__input" id="order-name" name="name" type="text" required>
+        <input class="order-form__input" id="order-name" name="name" type="text" autocomplete="name" required>
       </div>
       <div class="order-form__field">
         <label class="order-form__label" for="order-email">E-mail</label>
-        <input class="order-form__input" id="order-email" name="email" type="email" required>
+        <input class="order-form__input" id="order-email" name="email" type="email" autocomplete="email" required>
       </div>
       <div class="order-form__actions">
         <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
@@ -105,16 +102,16 @@
     </form>
   </dialog>
 
-  <p class="success-message" id="success-message" hidden>
-    Форма успешно отправлена!
+  <p class="success-message" id="success-message" role="status" hidden>
+    Заявка успешно проверена! Это учебная форма: данные на сервер не отправляются.
   </p>
 
   <a class="to-top" href="#top">Наверх</a>
-
-  <!-- Оформлен подвал сайта как БЭМ-блок site-footer -->
   <footer class="site-footer" id="contacts">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    <div class="site-footer__inner">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
 </body>
 </html>
