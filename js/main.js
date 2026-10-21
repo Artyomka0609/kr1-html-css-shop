@@ -6,6 +6,7 @@ const closeDialogButton = document.getElementById('close-order-dialog');
 const selectedProductInput = document.getElementById('selected-product');
 const orderForm = document.getElementById('order-form');
 const successMessage = document.getElementById('success-message');
+const selectedProductName = document.getElementById('order-product-name');
 
 function setFieldError(field, invalid) {
   // Модификатор добавляется вместе с базовым классом поля.
@@ -30,6 +31,10 @@ function openOrderDialog(productName = '') {
   Array.from(orderForm.elements).forEach((field) => setFieldError(field, false));
 
   if (selectedProductInput) selectedProductInput.value = productName;
+  if (selectedProductName) {
+    selectedProductName.textContent = productName ? `Выбран товар: ${productName}` : '';
+    selectedProductName.hidden = !productName;
+  }
   if (successMessage) successMessage.hidden = true;
   if (!orderDialog.open) orderDialog.showModal();
 }
