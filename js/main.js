@@ -51,6 +51,7 @@ function openOrderDialog(productName = '') {
   }
   if (successMessage) successMessage.hidden = true;
   if (!orderDialog.open) orderDialog.showModal();
+  orderDialog.scrollTop = 0;
 }
 
 orderButtons.forEach((button) => {

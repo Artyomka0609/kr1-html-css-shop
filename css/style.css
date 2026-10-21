@@ -402,6 +402,19 @@ a:focus-visible {
 
 .order-form__input[type="checkbox"] {
   width: auto;
+  flex-shrink: 0;
+  margin: 4px 0 0;
+  accent-color: var(--color-primary);
+}
+
+.order-form__label--checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.order-form__textarea {
+  resize: vertical;
 }
 
 .order-form__hint {
@@ -427,6 +440,11 @@ a:focus-visible {
 .order-form__select--error,
 .order-form__textarea--error {
   border-color: var(--color-danger);
+}
+
+.order-form__input--error[type="checkbox"] {
+  outline: 2px solid var(--color-danger);
+  outline-offset: 2px;
 }
 
 .order-form__actions {
