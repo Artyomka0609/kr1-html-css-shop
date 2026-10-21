@@ -6,24 +6,23 @@
   <meta name="description" content="Каталог товаров учебного интернет-магазина.">
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://kryptoNkn.github.io/kr1-html-css-shop/images/preview.jpg">
+  <meta property="og:image" content="https://github.io">
 </head>
 <body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
-
+  <!-- Приведено к БЭМ-блоку site-header и site-nav синхронно с главной страницей -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-          <li><a href="index.html#advantages">Преимущества</a></li>
-          <li><a href="index.html#popular">Популярные товары</a></li>
-          <li><a href="index.html#contacts">Обратная связь</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <!-- Для каталога добавлен модификатор активной ссылки -->
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -31,13 +30,13 @@
 
   <main>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a>
-      <span>Каталог</span>
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Каталог</span>
     </nav>
 
     <section class="section">
-      <h1>Каталог товаров</h1>
-      <p>
+      <h1 class="section__title">Каталог товаров</h1>
+      <p class="section__description">
         На этой странице представлен учебный каталог товаров.
         Слева можно выбрать категорию и диапазон цены, справа — список товаров.
       </p>
@@ -45,74 +44,78 @@
 
     <section class="catalog-layout">
       <aside class="catalog-filters">
-        <h2>Фильтры</h2>
+        <h2 class="catalog-filters__title">Фильтры</h2>
 
         <form class="filters-form" action="#" method="get">
-          <fieldset>
-            <legend>Категория</legend>
+          <!-- Добавлены БЭМ-классы для элементов формы фильтров -->
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Категория</legend>
 
-            <label>
+            <label class="filters-form__label">
               <input type="checkbox" name="category" value="all">
               Все товары
             </label>
 
-            <label>
+            <label class="filters-form__label">
               <input type="checkbox" name="category" value="popular">
               Популярные
             </label>
 
-            <label>
+            <label class="filters-form__label">
               <input type="checkbox" name="category" value="new">
               Новинки
             </label>
           </fieldset>
 
-          <fieldset>
-            <legend>Цена</legend>
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Цена</legend>
 
-            <label for="price-from">От</label>
-            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <label class="filters-form__label" for="price-from">От</label>
+            <input class="filters-form__input-number" id="price-from" name="price-from" type="number" min="0" placeholder="0">
 
-            <label for="price-to">До</label>
-            <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+            <label class="filters-form__label" for="price-to">До</label>
+            <input class="filters-form__input-number" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
           </fieldset>
 
-          <button class="button" type="submit">Применить</button>
+          <!-- Добавлен класс модификатора для кнопки -->
+          <button class="button button--primary" type="submit">Применить</button>
         </form>
       </aside>
 
       <section class="catalog-products">
-        <h2>Список товаров</h2>
+        <h2 class="catalog-products__title">Список товаров</h2>
 
         <div class="products-grid">
+          <!-- Карточки товаров полностью приведены к БЭМ-структуре -->
           <article class="product-card">
-            <h3>Товар 1</h3>
-            <p>Краткое описание учебного товара.</p>
-            <p>Цена: 1000 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
+            <h3 class="product-card__title">Товар 1</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 1000 руб.</p>
+            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
           </article>
 
           <article class="product-card">
-            <h3>Товар 2</h3>
-            <p>Краткое описание учебного товара.</p>
-            <p>Цена: 1500 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
+            <h3 class="product-card__title">Товар 2</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 1500 руб.</p>
+            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
           </article>
 
           <article class="product-card">
-            <h3>Товар 3</h3>
-            <p>Краткое описание учебного товара.</p>
-            <p>Цена: 2000 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
+            <h3 class="product-card__title">Товар 3</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 2000 руб.</p>
+            <a class="button button--secondary product-card__button" href="index.html#popular">Подробнее</a>
           </article>
         </div>
       </section>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  <!-- Подвал оформлен как БЭМ-блок site-footer -->
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 </body>
 </html>
