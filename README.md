@@ -136,19 +136,19 @@ kr1-html-css-shop/
 
 ## БЭМ-структура проекта
 
-- `page` — общая структура страницы.
-- `site-header`, `site-nav` — шапка и основная навигация.
-- `breadcrumbs` — хлебные крошки.
-- `hero`, `section` — первый экран и разделы страницы.
-- `products-grid` — сетка товаров.
-- `product-card` — переиспользуемая карточка товара.
-- `product-specs` — таблица характеристик.
-- `comparison`, `comparison-table` — общая таблица сравнения товаров.
-- `catalog-layout`, `catalog-filters`, `filters-form` — структура каталога и фильтры.
-- `order-dialog`, `order-form` — модальное окно и форма заявки.
-- `success-message` — сообщение об успешной проверке формы.
-- `button`, `to-top` — кнопки и ссылка возврата наверх.
-- `site-footer` — подвал сайта.
+- `page` - общая структура страницы.
+- `site-header`, `site-nav` - шапка и основная навигация.
+- `breadcrumbs` - хлебные крошки.
+- `hero`, `section` - первый экран и разделы страницы.
+- `products-grid` - сетка товаров.
+- `product-card` - переиспользуемая карточка товара.
+- `product-specs` - таблица характеристик.
+- `comparison`, `comparison-table` - общая таблица сравнения товаров.
+- `catalog-layout`, `catalog-filters`, `filters-form` - структура каталога и фильтры.
+- `order-dialog`, `order-form` - модальное окно и форма заявки.
+- `success-message` - сообщение об успешной проверке формы.
+- `button`, `to-top` - кнопки и ссылка возврата наверх.
+- `site-footer` - подвал сайта.
 
 Примеры элементов: `product-card__image`, `product-card__title`,
 `order-form__input`. Примеры модификаторов: `product-card--featured`,
