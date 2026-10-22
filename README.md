@@ -16,9 +16,8 @@
 
 ## Ссылка на опубликованный проект
 
-[GitHub Pages](https://artyomka0609.github.io/kr1-html-css-shop/)
+Ссылка на сайт (https://artyomka0609.github.io/kr1-html-css-shop/)
 
-[Репозиторий для сдачи в СДО](https://github.com/Artyomka0609/kr1-html-css-shop)
 
 Финальные доработки практической работы №8 находятся в ветке
 `fix/kr1-final-check`. Опубликованный сайт обновляется после слияния
