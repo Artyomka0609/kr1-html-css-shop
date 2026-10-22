@@ -1,6 +1,4 @@
-/* ===============================
-   1. Переменные проекта
-   =============================== */
+/* 1. Переменные проекта */
 
 :root {
   /* Основные цвета проекта */
@@ -40,9 +38,7 @@
   scroll-padding-top: calc(var(--site-header-height, 89px) + var(--space-md));
 }
 
-/* ===============================
-   2. Базовые стили
-   =============================== */
+/* 2. Базовые стили */
 
 * {
   box-sizing: border-box;
@@ -64,9 +60,7 @@
   padding: var(--space-lg);
 }
 
-/* ===============================
-   3. Общие элементы интерфейса (Блок button)
-   =============================== */
+/* 3. Общие элементы интерфейса (Блок button)*/
 
 a {
   color: var(--color-primary);
@@ -158,9 +152,7 @@ a:focus-visible {
   color: var(--color-white);
 }
 
-/* ===============================
-   4. Шапка и навигация (Блоки site-header, site-nav)
-   =============================== */
+/* 4. Шапка и навигация (Блоки site-header, site-nav)*/
 
 .site-header {
   position: sticky;
@@ -222,9 +214,7 @@ a:focus-visible {
   background-color: var(--color-primary);
 }
 
-/* ===============================
-   5. Страницы и Сетки (Блоки hero, section, products-grid)
-   =============================== */
+/* 5. Страницы и Сетки (Блоки hero, section, products-grid)*/
 
 .hero {
   max-width: var(--container-width);
@@ -276,9 +266,7 @@ a:focus-visible {
   margin-bottom: var(--space-xs);
 }
 
-/* ===============================
-   6. Карточка товара (Блок product-card)
-   =============================== */
+/* 6. Карточка товара (Блок product-card)*/
 
 .product-card {
   --product-media-bg: #eef5ff;
@@ -359,9 +347,7 @@ a:focus-visible {
   margin-bottom: 0;
 }
 
-/* ===============================
-   7. Форма и Модальное окно (Блоки order-dialog, order-form)
-   =============================== */
+/* 7. Форма и Модальное окно (Блоки order-dialog, order-form)*/
 
 .order-dialog {
   width: min(100% - var(--space-xl), 560px);
@@ -462,9 +448,7 @@ a:focus-visible {
   background-color: var(--color-success-bg);
 }
 
-/* ===============================
-   8. Хлебные крошки (Блок breadcrumbs)
-   =============================== */
+/* 8. Хлебные крошки (Блок breadcrumbs) */
 
 .breadcrumbs {
   max-width: var(--container-width);
@@ -482,9 +466,7 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
-/* ===============================
-   9. Каталог (Блоки catalog-layout, catalog-filters, filters-form)
-   =============================== */
+/* 9. Каталог (Блоки catalog-layout, catalog-filters, filters-form) */
 
 .catalog-layout {
   max-width: var(--container-width);
@@ -565,9 +547,7 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-/* ===============================
-   10. Подвал сайта (Блок site-footer)
-   =============================== */
+/* 10. Подвал сайта (Блок site-footer)*/
 
 .site-footer {
   padding: var(--space-lg) var(--space-lg) 88px;
@@ -583,9 +563,7 @@ a:focus-visible {
   margin: 0 0 var(--space-sm);
 }
 
-/* ===============================
-   11. Подробные карточки и изображения
-   =============================== */
+/* 11. Подробные карточки и изображения */
 
 .product-card--unavailable {
   --product-media-bg: #f3f1f8;
@@ -738,9 +716,7 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
-/* ===============================
-   12. Состояния кнопок и ссылки «Наверх»
-   =============================== */
+/* 12. Состояния кнопок и ссылки «Наверх» */
 
 .button:not(:disabled):not(.button--disabled):hover {
   box-shadow: var(--shadow-button);
