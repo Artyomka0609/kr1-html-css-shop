@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <meta name="description" content="Каталог из 9 товаров: наушники, мыши и клавиатуры. Фильтры по категории, цене и наличию, сравнение характеристик.">
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
@@ -35,66 +35,71 @@
     <section class="section">
       <h1 class="section__title">Каталог товаров</h1>
       <p class="section__description">
-        На этой странице представлен учебный каталог товаров.
-        Слева можно выбрать категорию и диапазон цены, справа — список товаров.
+        Наушники, мыши и клавиатуры для учёбы, работы и отдыха.
       </p>
+      <p class="section__description"></p>
     </section>
 
     <div class="catalog-layout">
-      <aside class="catalog-filters">
-        <h2 class="catalog-filters__title">Фильтры</h2>
-
-        <form class="filters-form" action="#" method="get">
+      <aside class="catalog-filters" aria-labelledby="filters-title">
+        <h2 class="catalog-filters__title" id="filters-title">Фильтры</h2>
+        <form class="filters-form" id="catalog-filter-form" action="catalog.html" method="get">
+          <div class="filters-form__field">
+            <label class="filters-form__label" for="filter-category">Категория</label>
+            <select class="filters-form__select" id="filter-category" name="category">
+              <option value="all">Все категории</option>
+              <option value="audio">Наушники</option>
+              <option value="mice">Мыши</option>
+              <option value="keyboards">Клавиатуры</option>
+            </select>
+          </div>
           <fieldset class="filters-form__fieldset">
-            <legend class="filters-form__legend">Категория</legend>
-
-            <label class="filters-form__label">
-              <input class="filters-form__checkbox" type="checkbox" name="category" value="all">
-              Все товары
-            </label>
-
-            <label class="filters-form__label">
-              <input class="filters-form__checkbox" type="checkbox" name="category" value="popular">
-              Популярные
-            </label>
-
-            <label class="filters-form__label">
-              <input class="filters-form__checkbox" type="checkbox" name="category" value="new">
-              Новинки
-            </label>
+            <legend class="filters-form__legend">Цена, ₽</legend>
+            <div class="filters-form__range">
+              <div class="filters-form__field">
+                <label class="filters-form__label" for="price-from">От</label>
+                <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" step="1" placeholder="0">
+              </div>
+              <div class="filters-form__field">
+                <label class="filters-form__label" for="price-to">До</label>
+                <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" step="1" placeholder="30000">
+              </div>
+            </div>
           </fieldset>
-
-          <fieldset class="filters-form__fieldset">
-            <legend class="filters-form__legend">Цена</legend>
-
-            <label class="filters-form__label" for="price-from">От</label>
-            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
-
-            <label class="filters-form__label" for="price-to">До</label>
-            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
-          </fieldset>
-          <button class="button button--primary" type="submit">Применить</button>
+          <label class="filters-form__label filters-form__label--checkbox">
+            <input class="filters-form__checkbox" id="filter-available" name="available" type="checkbox">
+            Только в наличии
+          </label>
+          <div class="filters-form__actions">
+            <button class="button button--primary" type="submit" aria-controls="catalog-grid">Применить</button>
+            <button class="button button--secondary" type="reset" aria-controls="catalog-grid">Сбросить</button>
+          </div>
         </form>
+        <noscript><p class="catalog-filters__note">Для работы фильтров включите JavaScript. Все товары доступны ниже.</p></noscript>
       </aside>
-
-      <section class="catalog-products">
-        <h2 class="catalog-products__title">Список товаров</h2>
-
-        <div class="products-grid">
-          <article class="product-card product-card--featured" aria-labelledby="headphones-title">
+      <section class="catalog-products" aria-labelledby="catalog-products-title">
+        <div class="catalog-products__heading">
+          <h2 class="catalog-products__title" id="catalog-products-title">Список товаров</h2>
+          <a class="catalog-products__compare" href="#comparison">Сравнить характеристики ↓</a>
+        </div>
+        <p class="catalog-products__count" id="catalog-result-count" role="status" aria-live="polite" aria-atomic="true">Показано товаров: 9 из 9</p>
+        <p class="catalog-products__empty" id="catalog-empty" hidden>По выбранным условиям ничего не найдено. Измените параметры или нажмите «Сбросить».</p>
+        <div class="products-grid" id="catalog-grid">
+          <article class="product-card product-card--featured" aria-labelledby="headphones-title"
+            data-category="audio" data-price="5990" data-available="true">
             <div class="product-card__media">
               <img class="product-card__image" src="images/headphones.svg"
                 alt="Синие полноразмерные наушники с мягкими амбушюрами" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <span class="product-card__badge">Хит</span>
-            <p class="product-card__category">Аудио · AR-H1</p>
-            <h3 class="product-card__title" id="headphones-title">Наушники Aero H1</h3>
-            <p class="product-card__description">Беспроводные наушники для музыки, учёбы и видеозвонков. Мягкие амбушюры и регулируемое оголовье.</p>
+            <p class="product-card__category">Наушники · WH-CH520</p>
+            <h3 class="product-card__title" id="headphones-title">Наушники Sony WH-CH520</h3>
+            <p class="product-card__description">Беспроводные накладные наушники со встроенным микрофоном. Подключаются к двум устройствам и работают до 50 часов без подзарядки.</p>
             <p class="product-card__availability" id="headphones-availability">В наличии</p>
             <details class="product-card__details">
               <summary class="product-card__summary">Характеристики</summary>
               <table class="product-specs">
-                <caption class="product-specs__caption">Наушники Aero H1</caption>
+                <caption class="product-specs__caption">Наушники Sony WH-CH520</caption>
                 <thead class="product-specs__head">
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -104,42 +109,327 @@
                 <tbody class="product-specs__body">
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
-                    <td class="product-specs__cell">Bluetooth 5.3</td>
+                    <td class="product-specs__cell">Bluetooth 5.2</td>
                   </tr>
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Время работы</th>
-                    <td class="product-specs__cell">До 24 часов</td>
+                    <td class="product-specs__cell">До 50 часов</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Микрофон</th>
+                    <td class="product-specs__cell">Встроенный</td>
                   </tr>
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
-                    <td class="product-specs__cell">180 г</td>
+                    <td class="product-specs__cell">около 147 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">Встроенный аккумулятор</td>
                   </tr>
                 </tbody>
               </table>
             </details>
             <div class="product-card__actions">
               <div class="product-card__prices">
-                <p class="product-card__price" aria-label="Цена: 1000 рублей">1 000 ₽</p>
+                <p class="product-card__price" aria-label="Цена: 5990 рублей">5 990 ₽</p>
+
               </div>
               <button class="button button--primary product-card__button" type="button"
-                data-product="Наушники Aero H1" aria-describedby="headphones-availability">Заказать</button>
+                data-product="Наушники Sony WH-CH520" aria-describedby="headphones-availability">Заказать</button>
             </div>
           </article>
 
-          <article class="product-card product-card--discount" aria-labelledby="mouse-title">
+          <article class="product-card product-card--discount" aria-labelledby="mouse-title"
+            data-category="mice" data-price="799" data-available="true">
             <div class="product-card__media">
               <img class="product-card__image" src="images/mouse.svg"
                 alt="Светло-серая компьютерная мышь с колёсиком и боковыми кнопками" width="640" height="480" loading="lazy" decoding="async">
             </div>
-            <span class="product-card__badge">−300 ₽</span>
-            <p class="product-card__category">Периферия · PT-M2</p>
-            <h3 class="product-card__title" id="mouse-title">Мышь Point M2</h3>
-            <p class="product-card__description">Удобная мышь для повседневной работы. Настраиваемая чувствительность и дополнительные боковые кнопки.</p>
+            <span class="product-card__badge">−200 ₽</span>
+            <p class="product-card__category">Мыши · M100</p>
+            <h3 class="product-card__title" id="mouse-title">Мышь Logitech M100</h3>
+            <p class="product-card__description">Проводная оптическая мышь для повседневной работы. Симметричная форма и подключение через USB без батареек.</p>
             <p class="product-card__availability" id="mouse-availability">В наличии</p>
             <details class="product-card__details">
               <summary class="product-card__summary">Характеристики</summary>
               <table class="product-specs">
-                <caption class="product-specs__caption">Мышь Point M2</caption>
+                <caption class="product-specs__caption">Мышь Logitech M100</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">USB-A</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Сенсор</th>
+                    <td class="product-specs__cell">1 000 dpi</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Кнопки</th>
+                    <td class="product-specs__cell">3</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">90 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">От USB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 799 рублей">799 ₽</p>
+                <del class="product-card__old-price" aria-label="Прежняя цена: 999 рублей">999 ₽</del>
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Мышь Logitech M100" aria-describedby="mouse-availability">Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--unavailable" aria-labelledby="keyboard-title"
+            data-category="keyboards" data-price="1490" data-available="false">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/keyboard.svg"
+                alt="Клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">Скоро</span>
+            <p class="product-card__category">Клавиатуры · K120</p>
+            <h3 class="product-card__title" id="keyboard-title">Клавиатура Logitech K120</h3>
+            <p class="product-card__description">Полноразмерная проводная клавиатура с цифровым блоком. Высокие клавиши и кабель USB для подключения к компьютеру.</p>
+            <p class="product-card__availability product-card__availability--unavailable" id="keyboard-availability">Временно нет в наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Клавиатура Logitech K120</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">USB-A</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Формат</th>
+                    <td class="product-specs__cell">Полноразмерная, с цифровым блоком</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Кабель</th>
+                    <td class="product-specs__cell">1,5 м</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">550 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">От USB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 1490 рублей">1 490 ₽</p>
+
+              </div>
+              <button class="button button--disabled product-card__button" type="button"
+                data-product="Клавиатура Logitech K120" aria-describedby="keyboard-availability" disabled>Нет в наличии</button>
+            </div>
+          </article>
+
+          <article class="product-card" aria-labelledby="headphones-lite-title"
+            data-category="audio" data-price="12990" data-available="true">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/headphones.svg"
+                alt="Синие полноразмерные наушники с мягкими амбушюрами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">ANC</span>
+            <p class="product-card__category">Наушники · WH-CH720N</p>
+            <h3 class="product-card__title" id="headphones-lite-title">Наушники Sony WH-CH720N</h3>
+            <p class="product-card__description">Полноразмерные наушники с активным шумоподавлением. Поддерживают Bluetooth и подключение аудиокабелем 3,5 мм.</p>
+            <p class="product-card__availability" id="headphones-lite-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Наушники Sony WH-CH720N</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth 5.2 / 3,5 мм</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Время работы</th>
+                    <td class="product-specs__cell">До 35 ч с ANC / до 50 ч без ANC</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Шумоподавление</th>
+                    <td class="product-specs__cell">Активное (ANC)</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">около 192 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">Встроенный аккумулятор</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 12990 рублей">12 990 ₽</p>
+
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Наушники Sony WH-CH720N" aria-describedby="headphones-lite-availability">Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" aria-labelledby="headphones-pro-title"
+            data-category="audio" data-price="29990" data-available="true">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/headphones.svg"
+                alt="Синие полноразмерные наушники с мягкими амбушюрами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">ANC</span>
+            <p class="product-card__category">Наушники · WH-1000XM5</p>
+            <h3 class="product-card__title" id="headphones-pro-title">Наушники Sony WH-1000XM5</h3>
+            <p class="product-card__description">Полноразмерные наушники с активным шумоподавлением и сенсорным управлением. Подходят для музыки и звонков в дороге.</p>
+            <p class="product-card__availability" id="headphones-pro-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Наушники Sony WH-1000XM5</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth 5.2 / 3,5 мм</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Время работы</th>
+                    <td class="product-specs__cell">До 30 ч с ANC / до 40 ч без ANC</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Управление</th>
+                    <td class="product-specs__cell">Сенсорное</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">около 250 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">Встроенный аккумулятор</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 29990 рублей">29 990 ₽</p>
+
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Наушники Sony WH-1000XM5" aria-describedby="headphones-pro-availability">Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card" aria-labelledby="mouse-air-title"
+            data-category="mice" data-price="1990" data-available="true">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/mouse.svg"
+                alt="Светло-серая компьютерная мышь с колёсиком и боковыми кнопками" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">Bluetooth</span>
+            <p class="product-card__category">Мыши · M240 Silent</p>
+            <h3 class="product-card__title" id="mouse-air-title">Мышь Logitech M240 Silent</h3>
+            <p class="product-card__description">Компактная Bluetooth-мышь с тихими нажатиями. Работает от одной батарейки AA и не требует USB-приёмника.</p>
+            <p class="product-card__availability" id="mouse-air-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Мышь Logitech M240 Silent</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth Low Energy</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Сенсор</th>
+                    <td class="product-specs__cell">400–4 000 dpi</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Кнопки</th>
+                    <td class="product-specs__cell">3, SilentTouch</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">73,8 г с батарейкой</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">1 батарейка AA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 1990 рублей">1 990 ₽</p>
+
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Мышь Logitech M240 Silent" aria-describedby="mouse-air-availability">Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--discount" aria-labelledby="mouse-pro-title"
+            data-category="mice" data-price="2490" data-available="true">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/mouse.svg"
+                alt="Светло-серая компьютерная мышь с колёсиком и боковыми кнопками" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">−500 ₽</span>
+            <p class="product-card__category">Мыши · G203 LIGHTSYNC</p>
+            <h3 class="product-card__title" id="mouse-pro-title">Мышь Logitech G203 LIGHTSYNC</h3>
+            <p class="product-card__description">Проводная игровая мышь с RGB-подсветкой LIGHTSYNC. Шесть программируемых кнопок и настройка чувствительности в G HUB.</p>
+            <p class="product-card__availability" id="mouse-pro-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Мышь Logitech G203 LIGHTSYNC</caption>
                 <thead class="product-specs__head">
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -153,39 +443,48 @@
                   </tr>
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Сенсор</th>
-                    <td class="product-specs__cell">До 3 200 dpi</td>
+                    <td class="product-specs__cell">200–8 000 dpi</td>
                   </tr>
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Кнопки</th>
-                    <td class="product-specs__cell">6</td>
+                    <td class="product-specs__cell">6 программируемых</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">85 г без кабеля</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">От USB</td>
                   </tr>
                 </tbody>
               </table>
             </details>
             <div class="product-card__actions">
               <div class="product-card__prices">
-                <p class="product-card__price" aria-label="Цена: 1500 рублей">1 500 ₽</p>
-                <del class="product-card__old-price" aria-label="Прежняя цена: 1800 рублей">1 800 ₽</del>
+                <p class="product-card__price" aria-label="Цена: 2490 рублей">2 490 ₽</p>
+                <del class="product-card__old-price" aria-label="Прежняя цена: 2990 рублей">2 990 ₽</del>
               </div>
               <button class="button button--primary product-card__button" type="button"
-                data-product="Мышь Point M2" aria-describedby="mouse-availability">Заказать</button>
+                data-product="Мышь Logitech G203 LIGHTSYNC" aria-describedby="mouse-pro-availability">Заказать</button>
             </div>
           </article>
 
-          <article class="product-card product-card--unavailable" aria-labelledby="keyboard-title">
+          <article class="product-card" aria-labelledby="keyboard-mini-title"
+            data-category="keyboards" data-price="3990" data-available="true">
             <div class="product-card__media">
               <img class="product-card__image" src="images/keyboard.svg"
-                alt="Компактная клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
+                alt="Клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
             </div>
-            <span class="product-card__badge">Скоро</span>
-            <p class="product-card__category">Периферия · TP-K3</p>
-            <h3 class="product-card__title" id="keyboard-title">Клавиатура Type K3</h3>
-            <p class="product-card__description">Компактная механическая клавиатура без цифрового блока. Съёмный кабель освобождает место на столе.</p>
-            <p class="product-card__availability product-card__availability--unavailable" id="keyboard-availability">Временно нет в наличии</p>
+
+            <p class="product-card__category">Клавиатуры · K380</p>
+            <h3 class="product-card__title" id="keyboard-mini-title">Клавиатура Logitech K380</h3>
+            <p class="product-card__description">Компактная Bluetooth-клавиатура без цифрового блока. Easy-Switch позволяет переключаться между тремя устройствами.</p>
+            <p class="product-card__availability" id="keyboard-mini-availability">В наличии</p>
             <details class="product-card__details">
               <summary class="product-card__summary">Характеристики</summary>
               <table class="product-specs">
-                <caption class="product-specs__caption">Клавиатура Type K3</caption>
+                <caption class="product-specs__caption">Клавиатура Logitech K380</caption>
                 <thead class="product-specs__head">
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -194,31 +493,213 @@
                 </thead>
                 <tbody class="product-specs__body">
                   <tr class="product-specs__row">
-                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Тип</th>
-                    <td class="product-specs__cell">Механическая</td>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth Classic</td>
                   </tr>
                   <tr class="product-specs__row">
                     <th class="product-specs__cell product-specs__cell--heading" scope="row">Клавиши</th>
-                    <td class="product-specs__cell">87</td>
+                    <td class="product-specs__cell">Ножничные</td>
                   </tr>
                   <tr class="product-specs__row">
-                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
-                    <td class="product-specs__cell">USB-C</td>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Устройства</th>
+                    <td class="product-specs__cell">До 3, Easy-Switch</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">423 г</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">2 батарейки AAA</td>
                   </tr>
                 </tbody>
               </table>
             </details>
             <div class="product-card__actions">
               <div class="product-card__prices">
-                <p class="product-card__price" aria-label="Цена: 2000 рублей">2 000 ₽</p>
+                <p class="product-card__price" aria-label="Цена: 3990 рублей">3 990 ₽</p>
+
               </div>
-              <button class="button button--disabled product-card__button" type="button"
-                data-product="Клавиатура Type K3" aria-describedby="keyboard-availability" disabled>Нет в наличии</button>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Клавиатура Logitech K380" aria-describedby="keyboard-mini-availability">Заказать</button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--featured" aria-labelledby="keyboard-pro-title"
+            data-category="keyboards" data-price="5490" data-available="true">
+            <div class="product-card__media">
+              <img class="product-card__image" src="images/keyboard.svg"
+                alt="Клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="product-card__badge">Хит</span>
+            <p class="product-card__category">Клавиатуры · K580</p>
+            <h3 class="product-card__title" id="keyboard-pro-title">Клавиатура Logitech K580</h3>
+            <p class="product-card__description">Тонкая беспроводная клавиатура с цифровым блоком и держателем телефона. Поддерживает переключение между двумя устройствами.</p>
+            <p class="product-card__availability" id="keyboard-pro-availability">В наличии</p>
+            <details class="product-card__details">
+              <summary class="product-card__summary">Характеристики</summary>
+              <table class="product-specs">
+                <caption class="product-specs__caption">Клавиатура Logitech K580</caption>
+                <thead class="product-specs__head">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
+                    <th class="product-specs__cell product-specs__cell--heading" scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody class="product-specs__body">
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
+                    <td class="product-specs__cell">Bluetooth LE / USB-приёмник</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Формат</th>
+                    <td class="product-specs__cell">С цифровым блоком и держателем телефона</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Устройства</th>
+                    <td class="product-specs__cell">До 2, Easy-Switch</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                    <td class="product-specs__cell">558 г с батарейками</td>
+                  </tr>
+                  <tr class="product-specs__row">
+                    <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                    <td class="product-specs__cell">2 батарейки AAA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+            <div class="product-card__actions">
+              <div class="product-card__prices">
+                <p class="product-card__price" aria-label="Цена: 5490 рублей">5 490 ₽</p>
+
+              </div>
+              <button class="button button--primary product-card__button" type="button"
+                data-product="Клавиатура Logitech K580" aria-describedby="keyboard-pro-availability">Заказать</button>
             </div>
           </article>
         </div>
       </section>
     </div>
+    <section class="section comparison" id="comparison" aria-labelledby="comparison-title">
+      <h2 class="section__title" id="comparison-title">Сравнение характеристик</h2>
+      <p class="section__description" id="comparison-description">Сравните подключение, основные возможности, вес, питание и цену.</p>
+      <div class="comparison__scroll" role="region" aria-labelledby="comparison-title" aria-describedby="comparison-description" tabindex="0">
+        <table class="comparison-table">
+          <caption class="comparison-table__caption">Характеристики и цены всех товаров каталога</caption>
+          <thead class="comparison-table__head">
+            <tr class="comparison-table__row">
+              <th class="comparison-table__cell comparison-table__cell--model" scope="col">Модель</th>
+              <th class="comparison-table__cell" scope="col">Категория</th>
+              <th class="comparison-table__cell" scope="col">Подключение</th>
+              <th class="comparison-table__cell" scope="col">Особенности</th>
+              <th class="comparison-table__cell" scope="col">Вес</th>
+              <th class="comparison-table__cell" scope="col">Питание</th>
+              <th class="comparison-table__cell" scope="col">Наличие</th>
+              <th class="comparison-table__cell" scope="col">Цена</th>
+            </tr>
+          </thead>
+          <tbody class="comparison-table__body">
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Наушники Sony WH-CH520</th>
+                <td class="comparison-table__cell">Наушники</td>
+                <td class="comparison-table__cell">Bluetooth 5.2</td>
+                <td class="comparison-table__cell">До 50 часов · микрофон</td>
+                <td class="comparison-table__cell">около 147 г</td>
+                <td class="comparison-table__cell">Встроенный аккумулятор</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">5 990 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Мышь Logitech M100</th>
+                <td class="comparison-table__cell">Мыши</td>
+                <td class="comparison-table__cell">USB-A</td>
+                <td class="comparison-table__cell">1 000 dpi · 3 кнопки</td>
+                <td class="comparison-table__cell">90 г</td>
+                <td class="comparison-table__cell">От USB</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">799 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Клавиатура Logitech K120</th>
+                <td class="comparison-table__cell">Клавиатуры</td>
+                <td class="comparison-table__cell">USB-A</td>
+                <td class="comparison-table__cell">Цифровой блок · кабель 1,5 м</td>
+                <td class="comparison-table__cell">550 г</td>
+                <td class="comparison-table__cell">От USB</td>
+                <td class="comparison-table__cell">Нет в наличии</td>
+                <td class="comparison-table__cell">1 490 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Наушники Sony WH-CH720N</th>
+                <td class="comparison-table__cell">Наушники</td>
+                <td class="comparison-table__cell">Bluetooth 5.2 / 3,5 мм</td>
+                <td class="comparison-table__cell">Шумоподавление · до 35 ч с ANC</td>
+                <td class="comparison-table__cell">около 192 г</td>
+                <td class="comparison-table__cell">Встроенный аккумулятор</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">12 990 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Наушники Sony WH-1000XM5</th>
+                <td class="comparison-table__cell">Наушники</td>
+                <td class="comparison-table__cell">Bluetooth 5.2 / 3,5 мм</td>
+                <td class="comparison-table__cell">Шумоподавление · до 30 ч с ANC</td>
+                <td class="comparison-table__cell">около 250 г</td>
+                <td class="comparison-table__cell">Встроенный аккумулятор</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">29 990 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Мышь Logitech M240 Silent</th>
+                <td class="comparison-table__cell">Мыши</td>
+                <td class="comparison-table__cell">Bluetooth Low Energy</td>
+                <td class="comparison-table__cell">400–4 000 dpi · тихие кнопки</td>
+                <td class="comparison-table__cell">73,8 г с батарейкой</td>
+                <td class="comparison-table__cell">1 батарейка AA</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">1 990 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Мышь Logitech G203 LIGHTSYNC</th>
+                <td class="comparison-table__cell">Мыши</td>
+                <td class="comparison-table__cell">USB</td>
+                <td class="comparison-table__cell">200–8 000 dpi · 6 кнопок</td>
+                <td class="comparison-table__cell">85 г без кабеля</td>
+                <td class="comparison-table__cell">От USB</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">2 490 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Клавиатура Logitech K380</th>
+                <td class="comparison-table__cell">Клавиатуры</td>
+                <td class="comparison-table__cell">Bluetooth Classic</td>
+                <td class="comparison-table__cell">Ножничные клавиши · 3 устройства</td>
+                <td class="comparison-table__cell">423 г</td>
+                <td class="comparison-table__cell">2 батарейки AAA</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">3 990 ₽</td>
+              </tr>
+              <tr class="comparison-table__row">
+                <th class="comparison-table__cell comparison-table__cell--model" scope="row">Клавиатура Logitech K580</th>
+                <td class="comparison-table__cell">Клавиатуры</td>
+                <td class="comparison-table__cell">Bluetooth LE / USB-приёмник</td>
+                <td class="comparison-table__cell">Цифровой блок · 2 устройства</td>
+                <td class="comparison-table__cell">558 г с батарейками</td>
+                <td class="comparison-table__cell">2 батарейки AAA</td>
+                <td class="comparison-table__cell">В наличии</td>
+                <td class="comparison-table__cell">5 490 ₽</td>
+              </tr>
+          </tbody>
+          <tfoot class="comparison-table__foot">
+            <tr class="comparison-table__row">
+              <td class="comparison-table__cell" colspan="8">Модели и характеристики - по данным производителей.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
   </main>
 
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">

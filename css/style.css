@@ -284,6 +284,10 @@ a:focus-visible {
     transform var(--transition-fast);
 }
 
+.product-card[hidden] {
+  display: none;
+}
+
 .product-card:not(.product-card--unavailable):hover {
   border-color: var(--color-primary);
   box-shadow: var(--shadow-card);
@@ -479,6 +483,12 @@ a:focus-visible {
 
 .catalog-filters {
   grid-area: filters;
+  position: sticky;
+  top: calc(var(--site-header-height, 89px) + var(--space-md));
+  align-self: start;
+  max-height: calc(100vh - var(--site-header-height, 89px) - var(--space-xl));
+  max-height: calc(100dvh - var(--site-header-height, 89px) - var(--space-xl));
+  overflow-y: auto;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -495,7 +505,32 @@ a:focus-visible {
 }
 
 .catalog-products__title {
-  margin-top: 0;
+  margin: 0;
+}
+
+.catalog-products__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.catalog-products__compare {
+  font-size: 14px;
+}
+
+.catalog-products__count,
+.catalog-filters__note {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.catalog-products__empty {
+  padding: var(--space-lg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
 }
 
 /* Блок формы фильтрации */
@@ -522,11 +557,29 @@ a:focus-visible {
   margin-bottom: var(--space-xs);
 }
 
+.filters-form__label--checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.filters-form__range {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.filters-form__actions {
+  display: grid;
+  gap: var(--space-sm);
+}
+
 .filters-form__checkbox {
   accent-color: var(--color-primary);
 }
 
-.filters-form__input {
+.filters-form__input,
+.filters-form__select {
   width: 100%;
   min-width: 0;
   margin-bottom: var(--space-sm);
@@ -536,11 +589,13 @@ a:focus-visible {
   font: inherit;
 }
 
-.filters-form__input:hover {
+.filters-form__input:hover,
+.filters-form__select:hover {
   border-color: var(--color-primary);
 }
 
 .filters-form__input:focus-visible,
+.filters-form__select:focus-visible,
 .filters-form__checkbox:focus-visible,
 .site-nav__link:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -716,6 +771,73 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
+/* Общая таблица сравнения: прокрутка остаётся внутри блока. */
+.comparison__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.comparison__scroll:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+.comparison-table__caption {
+  padding: var(--space-md);
+  text-align: left;
+  font-weight: 700;
+}
+
+.comparison-table__cell {
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+  background-color: var(--color-bg);
+}
+
+.comparison-table__cell:last-child {
+  border-right: none;
+}
+
+.comparison-table__body .comparison-table__cell:last-child {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.comparison-table__cell--model {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 170px;
+  max-width: 200px;
+}
+
+.comparison-table__body .comparison-table__row:nth-child(even) .comparison-table__cell {
+  background-color: var(--color-surface);
+}
+
+.comparison-table__body .comparison-table__row:hover .comparison-table__cell,
+.comparison-table__head .comparison-table__cell {
+  background-color: var(--color-surface-accent);
+}
+
+.comparison-table__foot .comparison-table__cell {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
 /* 12. Состояния кнопок и ссылки «Наверх» */
 
 .button:not(:disabled):not(.button--disabled):hover {
@@ -755,6 +877,12 @@ a:focus-visible {
   .catalog-layout {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "filters" "products";
+  }
+
+  .catalog-filters {
+    position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .order-form__actions {

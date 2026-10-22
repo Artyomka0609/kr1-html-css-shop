@@ -12,6 +12,60 @@ if (siteHeader) {
   new ResizeObserver(updateHeaderHeight).observe(siteHeader);
 }
 
+// Фильтры работают только на странице каталога; карточки остаются в HTML.
+const catalogFilterForm = document.getElementById('catalog-filter-form');
+
+if (catalogFilterForm) {
+  const category = document.getElementById('filter-category');
+  const priceFrom = document.getElementById('price-from');
+  const priceTo = document.getElementById('price-to');
+  const availableOnly = document.getElementById('filter-available');
+  const cards = Array.from(document.querySelectorAll('#catalog-grid .product-card'));
+  const resultCount = document.getElementById('catalog-result-count');
+  const emptyMessage = document.getElementById('catalog-empty');
+
+  function filterProducts(reset = false) {
+    const selectedCategory = reset ? 'all' : category.value;
+    const minPrice = reset || priceFrom.value === '' ? 0 : Number(priceFrom.value);
+    const maxPrice = reset || priceTo.value === '' ? Infinity : Number(priceTo.value);
+    const inStock = !reset && availableOnly.checked;
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const price = Number(card.dataset.price);
+      const matches = (selectedCategory === 'all' || card.dataset.category === selectedCategory)
+        && price >= minPrice && price <= maxPrice
+        && (!inStock || card.dataset.available === 'true');
+      card.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    resultCount.textContent = `Показано товаров: ${visibleCount} из ${cards.length}`;
+    emptyMessage.hidden = visibleCount !== 0;
+  }
+
+  catalogFilterForm.addEventListener('input', () => priceTo.setCustomValidity(''));
+
+  catalogFilterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    priceTo.setCustomValidity('');
+    if (priceFrom.value !== '' && priceTo.value !== ''
+      && Number(priceFrom.value) > Number(priceTo.value)) {
+      priceTo.setCustomValidity('Цена «До» должна быть не меньше цены «От».');
+    }
+    if (!catalogFilterForm.reportValidity()) return;
+    filterProducts();
+  });
+
+  catalogFilterForm.addEventListener('reset', () => {
+    priceTo.setCustomValidity('');
+    // Событие reset приходит до сброса значений браузером.
+    filterProducts(true);
+  });
+
+  filterProducts();
+}
+
 // Модальное окно и форма — отдельные БЭМ-блоки.
 // id используются для JavaScript, классы — для оформления.
 const orderDialog = document.getElementById('order-dialog');

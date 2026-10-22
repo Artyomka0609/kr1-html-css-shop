@@ -50,21 +50,23 @@
     <section class="section" id="popular">
       <h2 class="section__title">Популярные товары</h2>
 
+      <p class="section__description">Модели реальные; цены и наличие демонстрационные. Изображения — условные иллюстрации категорий.</p>
       <div class="products-grid">
-        <article class="product-card product-card--featured" aria-labelledby="headphones-title">
+        <article class="product-card product-card--featured" aria-labelledby="headphones-title"
+          data-category="audio" data-price="5990" data-available="true">
           <div class="product-card__media">
             <img class="product-card__image" src="images/headphones.svg"
               alt="Синие полноразмерные наушники с мягкими амбушюрами" width="640" height="480" loading="lazy" decoding="async">
           </div>
           <span class="product-card__badge">Хит</span>
-          <p class="product-card__category">Аудио · HYPER X</p>
-          <h3 class="product-card__title" id="headphones-title">Наушники HYPER X</h3>
-          <p class="product-card__description">Беспроводные наушники для музыки, учёбы и видеозвонков. Мягкие амбушюры и регулируемое оголовье.</p>
+          <p class="product-card__category">Наушники · WH-CH520</p>
+          <h3 class="product-card__title" id="headphones-title">Наушники Sony WH-CH520</h3>
+          <p class="product-card__description">Беспроводные накладные наушники со встроенным микрофоном. Подключаются к двум устройствам и работают до 50 часов без подзарядки.</p>
           <p class="product-card__availability" id="headphones-availability">В наличии</p>
           <details class="product-card__details">
             <summary class="product-card__summary">Характеристики</summary>
             <table class="product-specs">
-              <caption class="product-specs__caption">Наушники HYPER X</caption>
+              <caption class="product-specs__caption">Наушники Sony WH-CH520</caption>
               <thead class="product-specs__head">
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -74,42 +76,52 @@
               <tbody class="product-specs__body">
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
-                  <td class="product-specs__cell">Bluetooth 5.3</td>
+                  <td class="product-specs__cell">Bluetooth 5.2</td>
                 </tr>
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Время работы</th>
-                  <td class="product-specs__cell">До 24 часов</td>
+                  <td class="product-specs__cell">До 50 часов</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Микрофон</th>
+                  <td class="product-specs__cell">Встроенный</td>
                 </tr>
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
-                  <td class="product-specs__cell">180 г</td>
+                  <td class="product-specs__cell">около 147 г</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                  <td class="product-specs__cell">Встроенный аккумулятор</td>
                 </tr>
               </tbody>
             </table>
           </details>
           <div class="product-card__actions">
             <div class="product-card__prices">
-              <p class="product-card__price" aria-label="Цена: 1000 рублей">1 000 ₽</p>
+              <p class="product-card__price" aria-label="Цена: 5990 рублей">5 990 ₽</p>
+
             </div>
             <button class="button button--primary product-card__button" type="button"
-              data-product="Наушники HYPER X" aria-describedby="headphones-availability">Заказать</button>
+              data-product="Наушники Sony WH-CH520" aria-describedby="headphones-availability">Заказать</button>
           </div>
         </article>
 
-        <article class="product-card product-card--discount" aria-labelledby="mouse-title">
+        <article class="product-card product-card--discount" aria-labelledby="mouse-title"
+          data-category="mice" data-price="799" data-available="true">
           <div class="product-card__media">
             <img class="product-card__image" src="images/mouse.svg"
               alt="Светло-серая компьютерная мышь с колёсиком и боковыми кнопками" width="640" height="480" loading="lazy" decoding="async">
           </div>
-          <span class="product-card__badge">−300 ₽</span>
-          <p class="product-card__category">Периферия · RYZER М2</p>
-          <h3 class="product-card__title" id="mouse-title">Мышь RYZER M2</h3>
-          <p class="product-card__description">Удобная мышь для повседневной работы. Настраиваемая чувствительность и дополнительные боковые кнопки.</p>
+          <span class="product-card__badge">−200 ₽</span>
+          <p class="product-card__category">Мыши · M100</p>
+          <h3 class="product-card__title" id="mouse-title">Мышь Logitech M100</h3>
+          <p class="product-card__description">Проводная оптическая мышь для повседневной работы. Симметричная форма и подключение через USB без батареек.</p>
           <p class="product-card__availability" id="mouse-availability">В наличии</p>
           <details class="product-card__details">
             <summary class="product-card__summary">Характеристики</summary>
             <table class="product-specs">
-              <caption class="product-specs__caption">Мышь RYZER M2</caption>
+              <caption class="product-specs__caption">Мышь Logitech M100</caption>
               <thead class="product-specs__head">
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -119,43 +131,52 @@
               <tbody class="product-specs__body">
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
-                  <td class="product-specs__cell">USB</td>
+                  <td class="product-specs__cell">USB-A</td>
                 </tr>
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Сенсор</th>
-                  <td class="product-specs__cell">До 3 200 dpi</td>
+                  <td class="product-specs__cell">1 000 dpi</td>
                 </tr>
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Кнопки</th>
-                  <td class="product-specs__cell">6</td>
+                  <td class="product-specs__cell">3</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                  <td class="product-specs__cell">90 г</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                  <td class="product-specs__cell">От USB</td>
                 </tr>
               </tbody>
             </table>
           </details>
           <div class="product-card__actions">
             <div class="product-card__prices">
-              <p class="product-card__price" aria-label="Цена: 1500 рублей">1 500 ₽</p>
-              <del class="product-card__old-price" aria-label="Прежняя цена: 1800 рублей">1 800 ₽</del>
+              <p class="product-card__price" aria-label="Цена: 799 рублей">799 ₽</p>
+              <del class="product-card__old-price" aria-label="Прежняя цена: 999 рублей">999 ₽</del>
             </div>
             <button class="button button--primary product-card__button" type="button"
-              data-product="Мышь RYZER M2" aria-describedby="mouse-availability">Заказать</button>
+              data-product="Мышь Logitech M100" aria-describedby="mouse-availability">Заказать</button>
           </div>
         </article>
 
-        <article class="product-card product-card--unavailable" aria-labelledby="keyboard-title">
+        <article class="product-card product-card--unavailable" aria-labelledby="keyboard-title"
+          data-category="keyboards" data-price="1490" data-available="false">
           <div class="product-card__media">
             <img class="product-card__image" src="images/keyboard.svg"
-              alt="Компактная клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
+              alt="Клавиатура со светлыми клавишами и синими акцентами" width="640" height="480" loading="lazy" decoding="async">
           </div>
           <span class="product-card__badge">Скоро</span>
-          <p class="product-card__category">Периферия · RYZER K3</p>
-          <h3 class="product-card__title" id="keyboard-title">Клавиатура RYZER K3</h3>
-          <p class="product-card__description">Компактная механическая клавиатура без цифрового блока. Съёмный кабель освобождает место на столе.</p>
+          <p class="product-card__category">Клавиатуры · K120</p>
+          <h3 class="product-card__title" id="keyboard-title">Клавиатура Logitech K120</h3>
+          <p class="product-card__description">Полноразмерная проводная клавиатура с цифровым блоком. Высокие клавиши и кабель USB для подключения к компьютеру.</p>
           <p class="product-card__availability product-card__availability--unavailable" id="keyboard-availability">Временно нет в наличии</p>
           <details class="product-card__details">
             <summary class="product-card__summary">Характеристики</summary>
             <table class="product-specs">
-              <caption class="product-specs__caption">Клавиатура RYZER K3</caption>
+              <caption class="product-specs__caption">Клавиатура Logitech K120</caption>
               <thead class="product-specs__head">
                 <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="col">Параметр</th>
@@ -164,26 +185,35 @@
               </thead>
               <tbody class="product-specs__body">
                 <tr class="product-specs__row">
-                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Тип</th>
-                  <td class="product-specs__cell">Механическая</td>
-                </tr>
-                <tr class="product-specs__row">
-                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Клавиши</th>
-                  <td class="product-specs__cell">87</td>
-                </tr>
-                <tr class="product-specs__row">
                   <th class="product-specs__cell product-specs__cell--heading" scope="row">Подключение</th>
-                  <td class="product-specs__cell">USB-C</td>
+                  <td class="product-specs__cell">USB-A</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Формат</th>
+                  <td class="product-specs__cell">Полноразмерная, с цифровым блоком</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Кабель</th>
+                  <td class="product-specs__cell">1,5 м</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Вес</th>
+                  <td class="product-specs__cell">550 г</td>
+                </tr>
+                <tr class="product-specs__row">
+                  <th class="product-specs__cell product-specs__cell--heading" scope="row">Питание</th>
+                  <td class="product-specs__cell">От USB</td>
                 </tr>
               </tbody>
             </table>
           </details>
           <div class="product-card__actions">
             <div class="product-card__prices">
-              <p class="product-card__price" aria-label="Цена: 2000 рублей">2 000 ₽</p>
+              <p class="product-card__price" aria-label="Цена: 1490 рублей">1 490 ₽</p>
+
             </div>
             <button class="button button--disabled product-card__button" type="button"
-              data-product="Клавиатура RYZER K3" aria-describedby="keyboard-availability" disabled>Нет в наличии</button>
+              data-product="Клавиатура Logitech K120" aria-describedby="keyboard-availability" disabled>Нет в наличии</button>
           </div>
         </article>
       </div>
